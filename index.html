@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is Sarah a Sandwich?</title>
+    <style>
+      body {
+        font-family: impact, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+        margin: 0;
+      }
+
+      .container {
+        align-items: center;
+        background: #333;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        width: 100vw;
+      }
+
+      .container h1,
+      .container h2 {
+        background: black;
+        color: white;
+        font-weight: 900;
+        padding: 0.25em;
+        position: absolute;
+        text-transform: uppercase;
+        z-index: 100;
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 8px transparent;
+      }
+
+      .container h1 {
+        font-size: 7vw;
+        top: 2vh;
+      }
+
+      .container h2 {
+        animation-delay: 2s;
+        bottom: 2vh;
+        font-size: 15vw;
+        opacity: 0;
+        transform: scale(0) translate3d(0, 100vh, 0);
+      }
+
+      .animate h2 {
+        animation: yup 1s linear forwards;
+      }
+
+      @keyframes yup {
+        from {
+          opacity: 0;
+          transform: scale(0) translate3d(0, 100vh, 0);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1) translate3d(0, 0, 0);
+        }
+      }
+
+      .container button {
+        background: hotpink;
+        border: 4px solid black;
+        font-family: impact;
+        font-size: 4vw;
+        margin-top: 1vh;
+        padding: 0.25rem 1rem;
+      }
+
+      button span {
+        background: black;
+        color: white;
+        font-weight: 900;
+        padding: 0.25em;
+        text-transform: uppercase;
+        -webkit-background-clip: text;
+        -webkit-text-stroke: 6px transparent;
+      }
+
+      .animate button {
+        opacity: 0;
+      }
+
+      .sandwich {
+        position: absolute;
+        left: 0;
+        width: 100vw;
+      }
+
+      .animate .sandwich {
+        animation: sandwich 2s cubic-bezier(0.5, 0, 0.25, 1.25) forwards;
+      }
+
+      .sandwich.top {
+        --start-position: -100vh;
+        --end-position: -20vh;
+        transform: translate3d(0, -100vh, 0) rotate(-8deg);
+      }
+
+      .sandwich.bottom {
+        --start-position: 100vh;
+        --end-position: 15vh;
+        transform: translate3d(0, 100vh, 0) rotate(-8deg);
+      }
+
+      @keyframes sandwich {
+        from {
+          transform: translate3d(0, var(--start-position), 0) rotate(-8deg);
+        }
+        to {
+          transform: translate3d(0, var(--end-position), 0) rotate(-8deg);
+        }
+      }
+
+      .container .sarah {
+        border: 4px solid black;
+        height: 50vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Is Sarah Drasner a sandwich?</h1>
+
+      <img class="sarah" src="/assets/sarah.jpg" alt="Sarah" />
+
+      <button><span>Find out!</span></button>
+
+      <img
+        class="sandwich top"
+        src="/assets/sandwich-top.png"
+        alt="sandwich top"
+      />
+      <img
+        class="sandwich bottom"
+        src="/assets/sandwich-bottom.png"
+        alt="sandwich bottom"
+      />
+      <h2>YUP.</h2>
+    </div>
+
+    <script>
+      document.querySelector('button').addEventListener('click', () => {
+        document.querySelector('.container').classList.add('animate');
+      });
+    </script>
+  </body>
+</html>
