@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Is Sarah a Sandwich?</title>
     <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
         font-family: impact, -apple-system, BlinkMacSystemFont, 'Segoe UI',
           Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
           'Segoe UI Emoji', 'Segoe UI Symbol';
         margin: 0;
+        height: 100vh;
+        overflow: hidden;
+        width: 100vw;
       }
 
       .container {
@@ -19,6 +28,7 @@
         flex-direction: column;
         height: 100vh;
         justify-content: center;
+        overflow: hidden;
         width: 100vw;
       }
 
@@ -64,6 +74,10 @@
         }
       }
 
+      .container img {
+        display: block;
+      }
+
       .container button {
         background: hotpink;
         border: 4px solid black;
@@ -100,21 +114,21 @@
       .sandwich.top {
         --start-position: -100vh;
         --end-position: -20vh;
-        transform: translate3d(0, -100vh, 0) rotate(-8deg);
+        transform: translate3d(0, -100vh, 0);
       }
 
       .sandwich.bottom {
         --start-position: 100vh;
         --end-position: 15vh;
-        transform: translate3d(0, 100vh, 0) rotate(-8deg);
+        transform: translate3d(0, 100vh, 0);
       }
 
       @keyframes sandwich {
         from {
-          transform: translate3d(0, var(--start-position), 0) rotate(-8deg);
+          transform: translate3d(0, var(--start-position), 0);
         }
         to {
-          transform: translate3d(0, var(--end-position), 0) rotate(-8deg);
+          transform: translate3d(0, var(--end-position), 0);
         }
       }
 
